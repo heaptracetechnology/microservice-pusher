@@ -1,0 +1,39 @@
+# Stripe as a microservice
+An OMG service for Stripe, it allows to send messaged to devices who have subscribed for the channel on event.
+
+[![Open Microservice Guide](https://img.shields.io/badge/OMG-enabled-brightgreen.svg?style=for-the-badge)](https://microservice.guide)
+
+## [OMG](hhttps://microservice.guide) CLI
+
+### OMG
+
+* omg validate
+```
+omg validate
+```
+* omg build
+```
+omg build
+```
+### Test Service
+
+* Test the service by following OMG commands
+
+### CLI
+
+##### Retrive Paymentintent
+```sh
+$ omg run send_message -a appId=<APP_ID> -a cluster=<CLUSTER> -a data=<DATA> -a channel=<CHANNEl> -a event=<EVENT> -e SECRET=<SECRET> -e KEY=<KEY>
+```
+## License
+### [MIT](https://choosealicense.com/licenses/mit/)
+
+## Docker
+### Build
+```
+docker build -t microservice-pusher
+```
+### RUN
+```
+docker run -p 3000:3000 microservice-pusher
+```
