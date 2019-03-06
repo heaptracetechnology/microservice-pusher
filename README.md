@@ -23,7 +23,7 @@ omg build
 
 ### CLI
 
-##### Retrive Paymentintent
+##### Send Message
 ```sh
 $ omg run send -a appId=<APP_ID> -a cluster=<CLUSTER> -a title=<TITLE> -a message=<MESSAGE> -a channel=<CHANNEl> -a event=<EVENT> -e SECRET=<SECRET> -e KEY=<KEY>
 ```
