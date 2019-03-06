@@ -41,7 +41,7 @@ actions:
         type: string
         in: requestBody
         required: false
-        help: Data to be send in message.
+        help: Content to be send in message.
       channel: 
         type: string
         in: requestBody
