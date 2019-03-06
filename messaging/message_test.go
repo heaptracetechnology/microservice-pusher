@@ -77,7 +77,7 @@ var _ = Describe("Pusher messaging negative", func() {
 	Describe("Send message", func() {
 		Context("SendMessage", func() {
 			It("Should result http.StatusOK", func() {
-				Expect(recorder.Code).To(Equal(http.StatusOK))
+				Expect(recorder.Code).To(Equal(http.StatusBadRequest))
 			})
 		})
 	})
