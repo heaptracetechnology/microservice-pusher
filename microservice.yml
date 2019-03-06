@@ -14,12 +14,12 @@ info:
     name: MIT
     url: https://opensource.org/licenses/MIT 
 actions:
-  send_message:
+  send:
     help: Send message through channel
     http:
       port: 3000
       method: post
-      path: /sendmessage
+      path: /send
       contentType: application/json
     arguments:
       appId:

@@ -20,7 +20,7 @@ var routes = Routes{
     Route{
         "SendMessage",
         "POST",
-        "/sendmessage",
+        "/send",
         messaging.SendMessage,
     },
 }
