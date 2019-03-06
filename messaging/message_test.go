@@ -13,9 +13,10 @@ import (
 type TestArgsData struct {
 	AppId           string      `json:"appid"`
 	Cluster         string      `json:"cluster"`
-	Data            interface{} `json:"data"`
 	Channel			string		`json:"channel"`
 	Event			string		`json:"event"`
+	Title			string		`json:"title"`
+	Message			string		`json:"message"`
 }
 
 var _ = Describe("Pusher messaging", func() {
@@ -23,9 +24,10 @@ var _ = Describe("Pusher messaging", func() {
 	testmessage := TestArgsData{
 		AppId: "728602",
 		Cluster: "ap2",
-		Channel :"my-channel",
+		Channel :"my-channel1",
 		Event:"my-event",
-		Data : map[string]string{"message": "hello world"},
+		Title :"Sports",
+		Message:"Cricket",
 	}
 
 	reqbody := new(bytes.Buffer)
@@ -56,9 +58,10 @@ var _ = Describe("Pusher messaging negative", func() {
 	testmessage := TestArgsData{
 		AppId: "728602",
 		Cluster: "ap2",
-		Channel :"my-channel",
+		Channel :"my-channel1",
 		Event:"my-event",
-		Data : map[string]string{"message": "hello world"},
+		Title :"Sports",
+		Message:"Cricket",
 	}
 
 	reqbody := new(bytes.Buffer)

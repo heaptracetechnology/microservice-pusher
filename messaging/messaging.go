@@ -11,15 +11,21 @@ import ("github.com/pusher/pusher-http-go"
 type ArgsData struct {
 	AppId           string      `json:"appid"`
 	Cluster         string      `json:"cluster"`
-	Data            interface{} `json:"data"`
 	Channel			string		`json:"channel"`
 	Event			string		`json:"event"`
+	Title			string		`json:"title"`
+	Message			string		`json:"message"`
 }
 
 type Message struct {
     Success string `json:"success"`
     Message string `json:"message"`
 	StatusCode int `json:"statuscode"`
+}
+
+type Data struct {
+    Title 	string `json:"title"`
+    Message string `json:"message"`
 }
 
 func SendMessage(w http.ResponseWriter, r *http.Request){
@@ -32,7 +38,6 @@ func SendMessage(w http.ResponseWriter, r *http.Request){
 
 	var argsdata ArgsData
 	err = json.Unmarshal(body, &argsdata)
-//	var resmessage Message
 
 	
   	client := pusher.Client{
@@ -41,9 +46,12 @@ func SendMessage(w http.ResponseWriter, r *http.Request){
 		Secret: SECRET,
 		Cluster: argsdata.Cluster,
 		Secure: true,
- 	 }	
-
-	data := argsdata.Data
+	  }	
+	  
+	data  := Data{
+		Title	: argsdata.Title,
+		Message : argsdata.Message,
+	}
 	_, err = client.Trigger(argsdata.Channel, argsdata.Event, data)
 
 	if err != nil {
