@@ -56,8 +56,14 @@ actions:
       type: string
       contentType: application/json
       properties:
-        amount:
-          help: Notification status.
+        success:
+          help: Returns true or false.
+          type: string
+        message:
+          help: Success message or error message if occured.
+          type: string
+        statuscode:
+          help: Http status code.
           type: int
 environment:
   SECRET:
