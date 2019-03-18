@@ -1,4 +1,4 @@
-# Stripe as a microservice
+# Pusher as a microservice
 An OMG service for Pusher, it allows to send message to the devices who have subscribed for the channel on event.
 
 [![Open Microservice Guide](https://img.shields.io/badge/OMG-enabled-brightgreen.svg?style=for-the-badge)](https://microservice.guide)
