@@ -4,6 +4,7 @@ An OMG service for Pusher, it allows to send message to the devices who have sub
 [![Open Microservice Guide](https://img.shields.io/badge/OMG-enabled-brightgreen.svg?style=for-the-badge)](https://microservice.guide)
 [![Build Status](https://travis-ci.org/heaptracetechnology/microservice-pusher.svg?branch=master)](https://travis-ci.org/heaptracetechnology/microservice-pusher)
 [![codecov](https://codecov.io/gh/heaptracetechnology/microservice-pusher/branch/master/graph/badge.svg)](https://codecov.io/gh/heaptracetechnology/microservice-pusher)
+[![GolangCI](https://golangci.com/badges/github.com/golangci/golangci-web.svg)](https://golangci.com)
 
 ## [OMG](hhttps://microservice.guide) CLI
 
