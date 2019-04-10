@@ -32,7 +32,6 @@ type Data struct {
 
 func SendMessage(responseWriter http.ResponseWriter, request *http.Request) {
 
-	responseWriter.Header().Set("Content-Type", "application/json")
 	var SECRET = os.Getenv("SECRET")
 	var KEY = os.Getenv("KEY")
 
