@@ -2,11 +2,12 @@ package messaging
 
 import (
 	"encoding/json"
-	"github.com/heaptracetechnology/microservice-pusher/result"
-	"github.com/pusher/pusher-http-go"
 	"io/ioutil"
 	"net/http"
 	"os"
+
+	"github.com/heaptracetechnology/microservice-pusher/result"
+	"github.com/pusher/pusher-http-go"
 )
 
 type ArgsData struct {
@@ -29,23 +30,24 @@ type Data struct {
 	Message string `json:"message"`
 }
 
-func SendMessage(w http.ResponseWriter, r *http.Request) {
+func SendMessage(responseWriter http.ResponseWriter, request *http.Request) {
 
+	responseWriter.Header().Set("Content-Type", "application/json")
 	var SECRET = os.Getenv("SECRET")
 	var KEY = os.Getenv("KEY")
 
-	body, err := ioutil.ReadAll(r.Body)
+	body, err := ioutil.ReadAll(request.Body)
 	if err != nil {
-		result.WriteErrorResponse(w, err)
+		result.WriteErrorResponse(responseWriter, err)
 		return
 	}
 
-	defer r.Body.Close()
+	defer request.Body.Close()
 
 	var argsdata ArgsData
 	er := json.Unmarshal(body, &argsdata)
 	if er != nil {
-		result.WriteErrorResponse(w, er)
+		result.WriteErrorResponse(responseWriter, er)
 		return
 	}
 
@@ -63,11 +65,11 @@ func SendMessage(w http.ResponseWriter, r *http.Request) {
 	}
 	_, triggerErr := client.Trigger(argsdata.Channel, argsdata.Event, data)
 	if triggerErr != nil {
-		result.WriteErrorResponse(w, triggerErr)
+		result.WriteErrorResponse(responseWriter, triggerErr)
 		return
 	}
 
 	message := Message{"true", "notification sent", http.StatusOK}
 	bytes, _ := json.Marshal(message)
-	result.WriteJsonResponse(w, bytes, http.StatusOK)
+	result.WriteJsonResponse(responseWriter, bytes, http.StatusOK)
 }
