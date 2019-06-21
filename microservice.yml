@@ -62,7 +62,7 @@ actions:
         message:
           help: Success message or error message if occured.
           type: string
-        statuscode:
+        statusCode:
           help: Http status code.
           type: int
 environment:
