@@ -2,16 +2,15 @@ package messaging
 
 import (
 	"encoding/json"
+	"github.com/heaptracetechnology/microservice-pusher/result"
+	"github.com/pusher/pusher-http-go"
 	"io/ioutil"
 	"net/http"
 	"os"
-
-	"github.com/heaptracetechnology/microservice-pusher/result"
-	"github.com/pusher/pusher-http-go"
 )
 
 type ArgsData struct {
-	AppId   string `json:"appid"`
+	AppID   string `json:"appId"`
 	Cluster string `json:"cluster"`
 	Channel string `json:"channel"`
 	Event   string `json:"event"`
@@ -22,7 +21,7 @@ type ArgsData struct {
 type Message struct {
 	Success    string `json:"success"`
 	Message    string `json:"message"`
-	StatusCode int    `json:"statuscode"`
+	StatusCode int    `json:"statusCode"`
 }
 
 type Data struct {
@@ -30,6 +29,7 @@ type Data struct {
 	Message string `json:"message"`
 }
 
+//SendMessage pusher
 func SendMessage(responseWriter http.ResponseWriter, request *http.Request) {
 
 	var SECRET = os.Getenv("SECRET")
@@ -51,7 +51,7 @@ func SendMessage(responseWriter http.ResponseWriter, request *http.Request) {
 	}
 
 	client := pusher.Client{
-		AppId:   argsdata.AppId,
+		AppID:   argsdata.AppID,
 		Key:     KEY,
 		Secret:  SECRET,
 		Cluster: argsdata.Cluster,
@@ -62,7 +62,7 @@ func SendMessage(responseWriter http.ResponseWriter, request *http.Request) {
 		Title:   argsdata.Title,
 		Message: argsdata.Message,
 	}
-	_, triggerErr := client.Trigger(argsdata.Channel, argsdata.Event, data)
+	triggerErr := client.Trigger(argsdata.Channel, argsdata.Event, data)
 	if triggerErr != nil {
 		result.WriteErrorResponse(responseWriter, triggerErr)
 		return
