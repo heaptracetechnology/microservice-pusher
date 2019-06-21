@@ -12,7 +12,7 @@ import (
 )
 
 type TestArgsData struct {
-	AppId   string `json:"appid"`
+	AppID   string `json:"appid"`
 	Cluster string `json:"cluster"`
 	Channel string `json:"channel"`
 	Event   string `json:"event"`
@@ -20,13 +20,23 @@ type TestArgsData struct {
 	Message string `json:"message"`
 }
 
+var (
+	secret  = os.Getenv("PUSHER_SECRET")
+	key     = os.Getenv("PUSHER_KEY")
+	appID   = os.Getenv("PUSHER_APP_ID")
+	cluster = os.Getenv("PUSHER_CLUSTER")
+	channel = os.Getenv("PUSHER_CHANNEL")
+	event   = os.Getenv("PUSHER_EVENT")
+	mockKey = "53961c904521c180799709800"
+)
+
 var _ = Describe("Pusher messaging", func() {
 
 	testmessage := TestArgsData{
-		AppId:   "728602",
-		Cluster: "ap2",
-		Channel: "my-channel1",
-		Event:   "my-event",
+		AppID:   appID,
+		Cluster: cluster,
+		Channel: channel,
+		Event:   event,
 		Title:   "Sports",
 		Message: "Cricket",
 	}
@@ -37,8 +47,8 @@ var _ = Describe("Pusher messaging", func() {
 		log.Fatal(errr)
 	}
 
-	os.Setenv("SECRET", "14b80ade884bc6e20261")
-	os.Setenv("KEY", "53961c904521c1807997")
+	os.Setenv("SECRET", secret)
+	os.Setenv("KEY", key)
 
 	req, err := http.NewRequest("POST", "/send", requestBody)
 	if err != nil {
@@ -60,10 +70,10 @@ var _ = Describe("Pusher messaging", func() {
 var _ = Describe("Pusher messaging negative", func() {
 
 	testmessage := TestArgsData{
-		AppId:   "728602",
-		Cluster: "ap2",
-		Channel: "my-channel1",
-		Event:   "my-event",
+		AppID:   appID,
+		Cluster: cluster,
+		Channel: channel,
+		Event:   event,
 		Title:   "Sports",
 		Message: "Cricket",
 	}
@@ -74,8 +84,8 @@ var _ = Describe("Pusher messaging negative", func() {
 		log.Fatal(errr)
 	}
 
-	os.Setenv("SECRET", "14b80ade884bc6e20261")
-	os.Setenv("KEY", "53961c904521c180799709800")
+	os.Setenv("SECRET", secret)
+	os.Setenv("KEY", mockKey)
 
 	req, err := http.NewRequest("POST", "/send", requestBody)
 	if err != nil {
@@ -104,8 +114,8 @@ var _ = Describe("Pusher messaging negative unmarshal ", func() {
 		log.Fatal(errr)
 	}
 
-	os.Setenv("SECRET", "14b80ade884bc6e20261")
-	os.Setenv("KEY", "53961c904521c180799709800")
+	os.Setenv("SECRET", secret)
+	os.Setenv("KEY", mockKey)
 
 	req, err := http.NewRequest("POST", "/send", requestBody)
 	if err != nil {
