@@ -8,6 +8,7 @@ An OMG service for Pusher, it allows to send message to the devices who have sub
 
 ## Direct usage in [Storyscript](https://storyscript.io/):
 
+##### Send Message
 ```coffee
 >>> pusher send appId:'appId' cluster:'cluster' title:'title' message:'messageText' channel:'channelName' event:'eventName'
 {"success":"true/false","message":"success/failure message","statusCode":"HTTPstatusCode"}
