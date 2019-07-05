@@ -1,8 +1,9 @@
 # _Pusher_ OMG Microservice
 
 [![Open Microservice Guide](https://img.shields.io/badge/OMG%20Enabled-👍-green.svg?)](https://microservice.guide)
-[![Build Status](https://travis-ci.org/heaptracetechnology/microservice-pusher.svg?branch=master)](https://travis-ci.org/heaptracetechnology/microservice-pusher)
-[![codecov](https://codecov.io/gh/heaptracetechnology/microservice-pusher/branch/master/graph/badge.svg)](https://codecov.io/gh/heaptracetechnology/microservice-pusher)
+[![Build Status](https://travis-ci.org/omg-services/pusher.svg?branch=master)](https://travis-ci.org/omg-services/pusher)
+[![codecov](https://codecov.io/gh/omg-services/pusher/branch/master/graph/badge.svg)](https://codecov.io/gh/omg-services/pusher)
+
 
 An OMG service for Pusher, it allows to send message to the devices who have subscribed for the channel on event.
 
