@@ -2,7 +2,7 @@ package messaging
 
 import (
 	"encoding/json"
-	"github.com/heaptracetechnology/microservice-pusher/result"
+	"github.com/oms-services/pusher/result"
 	"github.com/pusher/pusher-http-go"
 	"io/ioutil"
 	"net/http"

@@ -4,7 +4,7 @@ import (
     "github.com/gorilla/mux"
     "log"
     "net/http"
-    "github.com/heaptracetechnology/microservice-pusher/messaging"
+    "github.com/oms-services/pusher/messaging"
 )
 
 type Route struct {
