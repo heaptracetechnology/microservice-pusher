@@ -1,18 +1,14 @@
-omg: 1
+oms: 1
 lifecycle:
   startup:
-    command: ["microservice-pusher"]
+    command: ['pusher']
 info:
   version: 1.0.0
-  title: Pusher 
+  title: Pusher
   description: This is a Pusher service
-  contact:
-    name: Rohit Shetty
-    url: https://github.com/ht68rohit
-    email: rohits@heaptrace.com
   license:
     name: MIT
-    url: https://opensource.org/licenses/MIT 
+    url: https://opensource.org/licenses/MIT
 actions:
   send:
     help: Send message through channel
@@ -27,33 +23,33 @@ actions:
         in: requestBody
         required: true
         help: Application ID of application created on pusher.
-      cluster: 
+      cluster:
         type: string
         in: requestBody
         required: true
         help: Type of cluster created on pusher.
-      title: 
+      title:
         type: string
         in: requestBody
         required: true
         help: Title of the message to be send in message.
-      message: 
+      message:
         type: string
         in: requestBody
         required: false
         help: Content to be send in message.
-      channel: 
+      channel:
         type: string
         in: requestBody
         required: true
         help: Subscribed channel name.
-      event: 
+      event:
         type: string
         in: requestBody
         required: true
         help: Subscribed event on channel.
-    output:   
-      type: string
+    output:
+      type: object
       contentType: application/json
       properties:
         success:
@@ -74,5 +70,3 @@ environment:
     type: string
     required: true
     help: Key for pusher
-    
-    

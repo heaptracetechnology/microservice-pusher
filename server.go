@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/heaptracetechnology/microservice-pusher/route"
+	"github.com/oms-services/pusher/route"
 	"log"
 	"net/http"
 )
