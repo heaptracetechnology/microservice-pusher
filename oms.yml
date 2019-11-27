@@ -1,14 +1,19 @@
 oms: 1
-lifecycle:
-  startup:
-    command: ['pusher']
 info:
   version: 1.0.0
   title: Pusher
   description: This is a Pusher service
   license:
     name: MIT
-    url: https://opensource.org/licenses/MIT
+    url: 'https://opensource.org/licenses/MIT'
+  contact:
+    name: Open Microservices
+    url: 'https://openmicroservices.org'
+    email: core@openmicroservices.org
+lifecycle:
+  startup:
+    command:
+      - pusher
 actions:
   send:
     help: Send message through channel
