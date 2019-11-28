@@ -3,12 +3,13 @@ sudo: false
 go:
   - 1.11.x
   - tip
-
 before_install:
   - go get -t -v ./...
-
 script:
-  - ./go.test.sh
-
+  - './go.test.sh'
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+env:
+  global:
+    - secure: iVqXFnl9Ow3oNZxJKlmr7/pdxshDFmrEIAbz4xsuO6493kvvSqWvWUooPdUstz1tCx69qEPJbjaEuou+P5KAURBZN/yhBihseqMBKDgSrlEQkINa3qP+Vs2BIC26NVjCL6CMkTzLcqBh3ey763d++o2Zqd8hvKewR6p5E4EcOQrGLCgGIv2hhBVIJ8GLq4wVla9C+f35Wlkysxm66+qfT19gPf7+xDIyHmK6+vsYWEop4Y0lDsMNqQdq61RZz4zZqPgL/mNSlJvbjRgMKKz6W8pgFqlSsOTvcS2T1lbigPRBTP/bXRPbW+zFwd2+t6PnRY4Ur+STYPc5Y0aQkDFueIjOzJsHpiMhb7kvC+J/FxRhCUN1Ih+aRBIhUHuy0WmiW/+dNuOTMTtqmx6NHME5ASnHQwr7HCz4pQMGbfmakI47HBtiS5j9fYgFcDj4L1pskV8kHOfHjMHQk4C+4hBoplIXi3w2An1wfLLce3eEiEPvTZ5DEYbO0PDUgGKWww++2Rs/MYRZHselOHZUVHxvGIMpCqGJgZSSM0FBY3bGOby2xr/w8CWnvJ8fGCnijAGBmt2pe7pUOsfzq80zhIWxg4mnw8nUmS0gf1Ow7ZdAQr/irW2xTJpXppf55XDYiCO4WufsxSRrYImAQSo0KPc002LvSvGz8gelcwM3ZLGEud4=
+    - secure: MgVBBv/9h4VeEZ1KKDWj5HELh/UxTZ8Mzc7yKvf2IPF9WB3TBjvY26FPPb8pPSS3PZ1ZDpS5uX8+qLpbttU/4eiwsSg36FgIlSbjod6wn8CPT5o7engVnCE56CpRV5HbAY25EEhZfEiA9IoiJ1siin8Eqs4bNajDGaH2gZFZNmPWIGGggZ/i7Lldbkma28AEFRF1bbeaDJaCx1/CVho9WoMZ/SFcz77Bj1oMk7MFRzbj2Uy2WYaGwTDJwWY2tklnExG3TAroGBafjLQM/+9h7Mm/gGqQztkwk8MIfCm7QHik4HDySYgyrSw/INB7vN/K4o7Ksi5CDdTYtul7FCOn2DM6uc0cKaILd68yhTlrAb+7chYlHY6SaowekItCK5MzB1Lf8JSujVy+W2+psaJFKvwbkwoXat7EUQyOS2B6kc22N++FESfD9NJovY1yomOwCa3y9OTF8g/njuRoK3Kp6FW2ttP49tMO5W5ei1EQIzC5MjxcxZc4K2/OvQ/VwFGFE2bGDhb7rTkR2/g9CJRfVywIKzZoYDhZBkrEUYe4DwnXY3Id0zzhEimrxT/4pYaKDTbOtABq7F9AgaLK+8VWXXWcVPaUBNCKK2CRcrk/TVeZNc7R/e/hCWsJL9353+lSnvm5jq3/tUaLAQRuZoooJfejw7URENXN21ZtvZl+jVk=
